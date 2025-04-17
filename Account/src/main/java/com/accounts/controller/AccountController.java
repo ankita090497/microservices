@@ -83,6 +83,7 @@ public class AccountController {
         return ResponseEntity.status(HttpStatus.OK).body(customerDto);
     }
 
+
     @Operation(
             summary = "Update Account Details REST API",
             description = "REST API to update Customer &  Account details based on a account number"
@@ -137,7 +138,6 @@ public class AccountController {
             )
     }
     )
-
     @DeleteMapping("/delete")
     public ResponseEntity<ResponseDto> deleteAccountDetails(@Pattern(regexp = "(^$|[0-9]{10})", message = "Mobile number must be 10 digits") @RequestParam String mobileNumber) {
         boolean isDeleted = accountService.deleteAccount(mobileNumber);
